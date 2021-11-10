@@ -1,7 +1,7 @@
 package fr.unilim.iut.gildedrose;
 
 public class Item {
-	private String name;
+	private static String name;
 	private int sellIn;
 	private int quality;
 
@@ -19,7 +19,7 @@ public class Item {
 		this.quality = quality;
 	}
 
-	public String getName() {
+	public static String getName() {
 		return name;
 	}
 

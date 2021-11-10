@@ -1,6 +1,9 @@
 package fr.unilim.iut.gildedrose;
 
 import org.junit.Test;
+
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class InnTest {
@@ -44,4 +47,12 @@ public class InnTest {
     assertThat(inn.getItems()).extracting("quality").containsExactly(18, 2, 5, 80, 22, 4);
   }
 
+  @Test
+  public void should_update_items_a_lot(){
+    for(int day=0; day < 100; day++){
+      inn.updateQuality();
+    }
+    assertThat(inn.getItems()).extracting("sellIn").containsExactly(-90, -98, -95, 0, -85, -97);
+    assertThat(inn.getItems()).extracting("quality").containsExactly(0, 50, 0, 80, 0, 0);
+  }
 }
